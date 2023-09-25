@@ -31,6 +31,7 @@ export const Cart =({handleClose}) => {
            
             const sendOrder =()=>{
 
+
                 if(formValues.email===formValues.emailC){
                 const order ={
                     buyer: formValues,
@@ -48,6 +49,7 @@ export const Cart =({handleClose}) => {
                             email:"",
                             emailC:"",
                         })
+
                         clear()
                         alert("Su orden "+id+" ha sido completada con éxito!")
                     }
@@ -137,6 +139,7 @@ export const Cart =({handleClose}) => {
                         value={formValues.email}
                         type="email"
                         name="email"
+                        required 
                         
                         />
                     </Form.Group>
@@ -146,7 +149,7 @@ export const Cart =({handleClose}) => {
                         placeholder="ejemplo@email.com"
                         onChange={handleChange}
                         value={formValues.emailC}
-                        type="emailC"
+                        type="email"
                         name="emailC"
                         />
                     </Form.Group>
@@ -163,9 +166,9 @@ export const Cart =({handleClose}) => {
                    
             </Form>
             <br />
-            <Button onClick={sendOrder}>
+            <Link onClick={sendOrder}>
                         Enviar compra
-            </Button>
+            </Link>
         </Container>
     )
 }}
