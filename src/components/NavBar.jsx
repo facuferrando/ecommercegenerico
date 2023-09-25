@@ -10,8 +10,8 @@ export const NavBar =() => (
         <Container >
           <Navbar.Brand as={Link} to="/">  </Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/"><Logo/> </Nav.Link>
-            <Nav.Link as={Link} to="/">Inicio</Nav.Link>
+            <Nav.Link as={Link} to="/ecommercegenerico"><Logo/> </Nav.Link>
+            <Nav.Link as={Link} to="/ecommercegenerico">Inicio</Nav.Link>
             <Nav.Link as={Link} to="/category/remeras">Remeras</Nav.Link>
             <Nav.Link as={Link} to="/category/buzos">Buzos</Nav.Link>
             <Nav.Link as={Link} to="/category/pantalones">Pantalones</Nav.Link>
