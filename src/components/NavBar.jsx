@@ -3,9 +3,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { CartWidget } from "./CartWidget";
 import { Logo } from "./Logo";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 export const NavBar =() => (
-
+  
   <Navbar bg="dark" data-bs-theme="dark">
         <Container >
           <Navbar.Brand as={Link} to="/">  </Navbar.Brand>
@@ -18,5 +18,6 @@ export const NavBar =() => (
           </Nav> <CartWidget className="align-self-end"/>
         </Container>
       </Navbar>
+  
 
 );
