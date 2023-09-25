@@ -1,0 +1,12 @@
+img{
+  height: 50px;
+}
+span{
+  color: aquamarine;
+}
+.itemCount span{
+  color: black;
+}
+.h4estilo{
+  text-decoration: none;
+}
