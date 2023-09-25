@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/ecommercegenerico/static/css/main.e764645c.css",
-    "main.js": "/ecommercegenerico/static/js/main.61dfca94.js",
+    "main.js": "/ecommercegenerico/static/js/main.abbd78e2.js",
     "static/js/787.d22a2a18.chunk.js": "/ecommercegenerico/static/js/787.d22a2a18.chunk.js",
     "static/media/carrito.png": "/ecommercegenerico/static/media/carrito.bd28ae61525902aa4bdf.png",
     "index.html": "/ecommercegenerico/index.html",
     "main.e764645c.css.map": "/ecommercegenerico/static/css/main.e764645c.css.map",
-    "main.61dfca94.js.map": "/ecommercegenerico/static/js/main.61dfca94.js.map",
+    "main.abbd78e2.js.map": "/ecommercegenerico/static/js/main.abbd78e2.js.map",
     "787.d22a2a18.chunk.js.map": "/ecommercegenerico/static/js/787.d22a2a18.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e764645c.css",
-    "static/js/main.61dfca94.js"
+    "static/js/main.abbd78e2.js"
   ]
 }
