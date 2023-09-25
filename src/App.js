@@ -14,7 +14,7 @@ function App()  {
   <BrowserRouter>
   <NavBar />
   <Routes >
-    <Route path="/ecommercegenerico" element={<ItemListContainer />}/>
+    <Route path="https://facuferrando.github.io/ecommercegenerico/" element={<ItemListContainer />}/>
     <Route path="/" element={<ItemListContainer />}/>
     <Route path="/category/:id" element={<ItemListContainer />}/>
     <Route path="/item/:id" element={<ItemDetailContainer  />}/>
