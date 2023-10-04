@@ -11,7 +11,12 @@ span{
   text-decoration: none;
 }
 
-div .carroflex.container{
+
+.carroflex{
   display: flex;
   justify-content: flex-end;
 }
+/* div .carroflex.container{
+  display: flex;
+  justify-content: flex-end;
+} */
