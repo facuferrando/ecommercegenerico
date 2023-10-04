@@ -19,11 +19,8 @@ export const CartWidget = () => {
 
     return(
         <>
-        <Container onClick={handleShow} >
-            
+        <Container className="carroflex" onClick={handleShow} > 
             <img  src={carro} alt='carrito' /> <span>{totalWidget}</span>;
-            
-   
         </Container>
 
         <Offcanvas placement={"end"} show={show} onHide={handleClose}>
