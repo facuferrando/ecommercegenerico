@@ -16,3 +16,7 @@ span{
   display: flex;
   justify-content: flex-end;
 }
+
+.filtroPrecio {
+  color: black;
+}
