@@ -39,7 +39,7 @@ export const ItemListContainer = props => {
                     setProducts(filtro.filter((item)=>item.price>=minPrice))
                 })
 
- }, [id, products]);
+ }, [id, prasdfsadf]);
                 
    console.log(products)
    console.log(filtro)
