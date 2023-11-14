@@ -3,62 +3,50 @@ import { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import { useParams } from 'react-router-dom';
 import { ItemList } from './ItemList';
-import {getFirestore,query, where, getDocs,collection} from "firebase/firestore" ;
+import {getFirestore,query, where, getDocs,collection, orderBy} from "firebase/firestore" ;
 
-export const ItemListContainer = props => {
-    const [minPrice,setMinPrice] = useState(0)
-    const [products, setProducts] = useState ([]); 
-    const{id}=useParams();
-    const db = getFirestore()  
-    const handleChangeMinPrice = (event) =>{
-        setMinPrice(event.target.value)
-    
-}
-    const [filtro,setFiltro] = useState([])
-    useEffect (()=>{ 
-        
-        let refCollection={};
-        if (!id){refCollection=collection(db, "products")}
-        else{refCollection=query(collection(db, "products"), where("category","==",id))}
-       
-        getDocs(refCollection)
-        .then (snapshot=>{
-            if(snapshot.size===0) console.log("no results")
-            else {
-                setFiltro(
-                    snapshot.docs.map(doc=>({
-                        id:doc.id, ...doc.data(),
-                    }))
-                )
-               
-                // const filter = products.filter (product => product.price >= 10)
-                // setProducts(filter)
-            }
-                })
-                .finally(()=>{
-                    setProducts(filtro.filter((item)=>item.price>=minPrice))
-                })
+export function ItemListContainer () {
+    const [loading, setLoading] = useState([])
+    const [maxPrice, setMaxPrice] = useState(150)
+    const [products, setProducts] = useState([])
+    const {category} = useParams()
+    const handleChangeMaxPrice = (e => setMaxPrice(e.target.value))
 
- }, [id, prasdfsadf]);
-                
-   console.log(products)
-   console.log(filtro)
+    useEffect(() =>{
+        setLoading(true)
+        const db = getFirestore()
+        let queryCollection = collection(db, "products")
+        //hayq ue ordenar por precio
+        if(category){queryCollection = query(queryCollection,where("category","==",category), orderBy("price"))}
+        getDocs(queryCollection)
+        .then(response => 
+            setProducts(response.docs.filter(item => item.data().price <= maxPrice)
+                                     .map(item=>({id:item.id, ...item.data()}))
+                        )
+        )
+        .finally(setLoading(false))
+    }, [category, maxPrice])
     return (
-    <Container> 
-    <h3>Esto es un filtro</h3>
-    <label htmlFor="precio">Price</label>
-    <input
-    type="range"
-    min={0}
-    max={150}
-    id="precioRango"
-    onChange={handleChangeMinPrice}
-    />
-    <span className="filtroPrecio">{minPrice}</span>
-    <h1>{props.greeting} </h1>
-    <div style={{display: "flex", flexWrap: "wrap"}}>
-    <ItemList products={products}></ItemList>
-    </div>
-   
-    </Container>)
-};
+        <>
+        <Container>
+        <label htmlFor="precio"> Price  </label>
+            <input
+                type="range"
+                min={0}
+                max={150}
+                defaultValue={maxPrice}
+                onChange={handleChangeMaxPrice}
+            />
+            <span className="filtroPrecio">{maxPrice}</span>
+            {
+                loading?
+                <span>Loading...</span>
+                :
+                <div style={{display: "flex", flexWrap: "wrap"}}>
+                <ItemList products={products}></ItemList>
+                </div>
+            }
+            </Container>
+        </>
+    )
+}
